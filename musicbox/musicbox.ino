@@ -12,9 +12,9 @@ Button buttonOff(PIN_BUTTON_OFF);
 Button buttonSpeed(PIN_BUTTON_SPEED);
 Buzzer buzzer(PIN_BUZZER);
 
-unsigned long speeds[] = {25, 50, 100, 200, 400, 800};
+unsigned long speeds[] = {25, 50, 100, 150, 200, 300, 400, 800};
 int currentSpeed = 2;
-int speedsLength = 6;
+int speedsLength = 8;
 
 int notes[] = {NOTE_A4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
 double durations[] = {8, 1, 4, 1};
@@ -46,19 +46,19 @@ int notes3[] = {NOTE_E2,
                 NOTE_B1,
                 NOTE_SILENCE};
 double durations3[] = {6*R,//
+                       2*R,
+                       2*R,//
                        R,
-                       3*R,//
+                       R/2,//
                        R/2,
-                       R,//
+                       R/2,//
                        R/2,
                        R/2,//
                        R/2,
                        R,//
-                       R/2,
-                       2*R,//
                        2*R,
                        2*R,//
-                       R};
+                       2*R};
 int melodyLength3 = 14;
 
 void setup()
