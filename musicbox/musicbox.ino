@@ -22,39 +22,47 @@ Button buttonMelodyTwo(PIN_BUTTON_MEL_TWO);
 int notes2[] = {NOTE_C4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
 double durations2[] = {4, 1, 4, 1};
 int melodyLength2 = 4;
-/*
-int notes3[] = {NOTE_A5,
+
+//Кеша
+int R = 4;
+int notes3[] = {NOTE_E2,
                 NOTE_SILENCE,
-                NOTE_A5,
+                NOTE_E2,
                 NOTE_SILENCE, 
-                NOTE_A7,
+                NOTE_G2,
                 NOTE_SILENCE,
-                NOTE_A5,
+                NOTE_E2,
                 NOTE_SILENCE,
-                NOTE_A3,
+                NOTE_D2,
                 NOTE_SILENCE,
-                NOTE_A1,
+                NOTE_C2,
                 NOTE_SILENCE,
-                NOTE_AS1};
-double durations3[] = {6,
-                       1,
-                       4,
-                       1,
-                       4,
-                       1,
-                       4};
-int melodyLength3 = 4;
-*/
+                NOTE_B1};
+double durations3[] = {R,
+                       4*1.5*R,//
+                       R/2,
+                       R/2,//
+                       R/4,
+                       R/4,//
+                       R/4,
+                       R/4,//
+                       R/2,
+                       R/2,//
+                       2*R,
+                       2*R,//
+                       R};
+int melodyLength3 = 13;
+
 void setup()
 {
-    Serial.begin(115200);
+    //Serial.begin(115200);
     buzzer.setMelody(notes, durations, melodyLength);
 }
 
 void loop()
 {
     buzzer.playSound();
-    Serial.print(begin);
+    //Serial.print(begin);
     if (buttonOff.wasPressed())
     {
         buzzer.turnSoundOff();
@@ -62,8 +70,15 @@ void loop()
 
     if (buttonMelodyOne.wasPressed())
     {
+        buzzer.setMelody(notes, durations, melodyLength);
+        //buzzer.setMelody(notes2, durations2, melodyLength2);
+        buzzer.turnSoundOn();
+    }
+    if (buttonMelodyTwo.wasPressed())
+    {
         //buzzer.setMelody(notes, durations, melodyLength);
-        buzzer.setMelody(notes2, durations2, melodyLength2);
+        //buzzer.setMelody(notes2, durations2, melodyLength2);
+        buzzer.setMelody(notes3, durations3, melodyLength3);
         buzzer.turnSoundOn();
     }
 }
