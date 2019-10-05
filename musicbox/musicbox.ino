@@ -19,19 +19,42 @@ int melodyLength = 4;
 // Button buttonMelodyTwo(PIN_BUTTON_MEL_TWO);
 
 // and the second melody
-// int notes2[] = {NOTE_C4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
-// double durations2[] = {4, 1, 4, 1};
-// int melodyLength2 = 4;
-
+int notes2[] = {NOTE_C4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
+double durations2[] = {4, 1, 4, 1};
+int melodyLength2 = 4;
+/*
+int notes3[] = {NOTE_A5,
+                NOTE_SILENCE,
+                NOTE_A5,
+                NOTE_SILENCE, 
+                NOTE_A7,
+                NOTE_SILENCE,
+                NOTE_A5,
+                NOTE_SILENCE,
+                NOTE_A3,
+                NOTE_SILENCE,
+                NOTE_A1,
+                NOTE_SILENCE,
+                NOTE_AS1};
+double durations3[] = {6,
+                       1,
+                       4,
+                       1,
+                       4,
+                       1,
+                       4};
+int melodyLength3 = 4;
+*/
 void setup()
 {
+    Serial.begin(115200);
     buzzer.setMelody(notes, durations, melodyLength);
 }
 
 void loop()
 {
     buzzer.playSound();
-
+    Serial.print(begin);
     if (buttonOff.wasPressed())
     {
         buzzer.turnSoundOff();
@@ -39,7 +62,8 @@ void loop()
 
     if (buttonMelodyOne.wasPressed())
     {
-        buzzer.setMelody(notes, durations, melodyLength);
+        //buzzer.setMelody(notes, durations, melodyLength);
+        buzzer.setMelody(notes2, durations2, melodyLength2);
         buzzer.turnSoundOn();
     }
 }
