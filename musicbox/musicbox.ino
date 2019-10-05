@@ -12,25 +12,25 @@ Button buttonOff(PIN_BUTTON_OFF);
 Button buttonSpeed(PIN_BUTTON_SPEED);
 Buzzer buzzer(PIN_BUZZER);
 
-int notes[] = {NOTE_A4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
-double durations[] = {8, 1, 4, 1};
-int melodyLength = 4;
-
 unsigned long speeds[] = {25, 50, 100, 200, 400, 800};
 int currentSpeed = 2;
 int speedsLength = 6;
 
+int notes[] = {NOTE_A4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
+double durations[] = {8, 1, 4, 1};
+int melodyLength = 4;
+
 // maybe somewhere in the future we will have one more button...
-#define PIN_BUTTON_MEL_TWO 4
-Button buttonMelodyTwo(PIN_BUTTON_MEL_TWO);
+//#define PIN_BUTTON_MEL_TWO 4
+//Button buttonMelodyTwo(PIN_BUTTON_MEL_TWO);
 
 // and the second melody
-int notes2[] = {NOTE_C4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
-double durations2[] = {4, 1, 4, 1};
-int melodyLength2 = 4;
+//int notes2[] = {NOTE_C4, NOTE_SILENCE, NOTE_G4, NOTE_SILENCE};
+//double durations2[] = {4, 1, 4, 1};
+//int melodyLength2 = 4;
 
 //Кеша
-int R = 4;
+double R = 4;
 int notes3[] = {NOTE_E2,
                 NOTE_SILENCE,
                 NOTE_E2,
@@ -47,17 +47,17 @@ int notes3[] = {NOTE_E2,
                 NOTE_SILENCE};
 double durations3[] = {6*R,//
                        R,
-                       4*R,//
+                       3*R,//
                        R/2,
-                       R/2,//
-                       R/4,
-                       R/2,//
-                       R/4,
                        R,//
                        R/2,
-                       4*R,//
+                       R/2,//
+                       R/2,
+                       R,//
+                       R/2,
+                       2*R,//
                        2*R,
-                       4*R,//
+                       2*R,//
                        R};
 int melodyLength3 = 14;
 
@@ -78,10 +78,12 @@ void loop()
 
     if (buttonMelodyOne.wasPressed())
     {
-        buzzer.setMelody(notes, durations, melodyLength);
+        //buzzer.setMelody(notes, durations, melodyLength);
         //buzzer.setMelody(notes2, durations2, melodyLength2);
+        buzzer.setMelody(notes3, durations3, melodyLength3);
         buzzer.turnSoundOn();
     }
+    /*
     if (buttonMelodyTwo.wasPressed())
     {
         //buzzer.setMelody(notes, durations, melodyLength);
@@ -89,7 +91,7 @@ void loop()
         buzzer.setMelody(notes3, durations3, melodyLength3);
         buzzer.turnSoundOn();
     }
-
+    */
     if (buttonSpeed.wasPressed())
     {
         currentSpeed = (currentSpeed + 1)%speedsLength;
