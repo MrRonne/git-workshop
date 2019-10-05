@@ -37,21 +37,23 @@ int notes3[] = {NOTE_E2,
                 NOTE_SILENCE,
                 NOTE_C2,
                 NOTE_SILENCE,
-                NOTE_B1};
-double durations3[] = {R,
-                       4*1.5*R,//
+                NOTE_B1,
+                NOTE_SILENCE};
+double durations3[] = {6*R,//
+                       R,
+                       4*R,//
                        R/2,
                        R/2,//
                        R/4,
-                       R/4,//
-                       R/4,
-                       R/4,//
-                       R/2,
                        R/2,//
+                       R/4,
+                       R,//
+                       R/2,
+                       4*R,//
                        2*R,
-                       2*R,//
+                       4*R,//
                        R};
-int melodyLength3 = 13;
+int melodyLength3 = 14;
 
 void setup()
 {
